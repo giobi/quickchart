@@ -1,0 +1,16 @@
+name = "quickchart"
+main = "src/index.ts"
+compatibility_date = "2024-11-19"
+
+# Cloudflare Workers configuration
+workers_dev = true
+
+# KV namespace for caching (create via dashboard first)
+# [[kv_namespaces]]
+# binding = "CHART_CACHE"
+# id = "YOUR_KV_NAMESPACE_ID"
+
+[vars]
+CACHE_TTL = "3600"
+MAX_WIDTH = "2000"
+MAX_HEIGHT = "2000"

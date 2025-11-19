@@ -1,0 +1,24 @@
+{
+  "name": "quickchart",
+  "version": "1.0.0",
+  "description": "Server-side Chart.js rendering with Cloudflare Workers.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20251119.0",
+    "typescript": "^5.9.3",
+    "wrangler": "^4.49.0"
+  },
+  "dependencies": {
+    "canvas": "^3.2.0",
+    "chart.js": "^4.5.1",
+    "chartjs-node-canvas": "^5.0.0"
+  }
+}
