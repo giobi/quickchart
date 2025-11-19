@@ -6,6 +6,8 @@
  * API: /chart?type=bar&data=10,20,30&labels=A,B,C&width=800&height=400
  */
 
+import { demoHTML } from './demo-html';
+
 export interface Env {
   CHART_CACHE?: KVNamespace;
   CACHE_TTL: string;
@@ -213,97 +215,5 @@ async function renderChart(config: ChartConfig): Promise<ArrayBuffer> {
 }
 
 function getApiDocs(): string {
-  return `<!DOCTYPE html>
-<html>
-<head>
-  <title>QuickChart Clone API</title>
-  <style>
-    body { font-family: system-ui; max-width: 800px; margin: 40px auto; padding: 0 20px; }
-    code { background: #f4f4f4; padding: 2px 6px; border-radius: 3px; }
-    pre { background: #f4f4f4; padding: 15px; border-radius: 5px; overflow-x: auto; }
-    h1 { color: #333; }
-    .example { margin: 20px 0; }
-  </style>
-</head>
-<body>
-  <h1>🚀 QuickChart Clone API</h1>
-  <p>Server-side Chart.js rendering with Cloudflare Workers</p>
-
-  <h2>Endpoint</h2>
-  <pre>GET /chart</pre>
-
-  <h2>Parameters</h2>
-  <ul>
-    <li><code>type</code> - Chart type (bar, line, pie, doughnut, radar)</li>
-    <li><code>data</code> - Comma-separated values (required)</li>
-    <li><code>labels</code> - Comma-separated labels (optional)</li>
-    <li><code>width</code> - Image width in pixels (default: 800)</li>
-    <li><code>height</code> - Image height in pixels (default: 400)</li>
-    <li><code>title</code> - Chart title (optional)</li>
-    <li><code>backgroundColor</code> - Bar/line color (optional)</li>
-    <li><code>borderColor</code> - Border color (optional)</li>
-  </ul>
-
-  <h2>Examples</h2>
-
-  <div class="example">
-    <h3>Bar Chart</h3>
-    <pre>/chart?type=bar&data=10,20,30,25&labels=A,B,C,D&title=Sales</pre>
-    <img src="/chart?type=bar&data=10,20,30,25&labels=A,B,C,D&title=Sales&width=600&height=300" />
-  </div>
-
-  <div class="example">
-    <h3>Line Chart</h3>
-    <pre>/chart?type=line&data=5,10,15,10,20&width=600&height=300</pre>
-    <img src="/chart?type=line&data=5,10,15,10,20&width=600&height=300" />
-  </div>
-
-  <div class="example">
-    <h3>Pie Chart</h3>
-    <pre>/chart?type=pie&data=30,50,20&labels=Red,Blue,Yellow</pre>
-    <img src="/chart?type=pie&data=30,50,20&labels=Red,Blue,Yellow&width=400&height=400" />
-  </div>
-
-  <h2>⚡ Caching</h2>
-  <p>Charts are cached using Cloudflare KV for ultra-fast subsequent requests.</p>
-
-  <h3>How it works</h3>
-  <ul>
-    <li><strong>Cache Key:</strong> Generated from chart configuration (type, data, labels, dimensions, styling)</li>
-    <li><strong>TTL:</strong> 864000 seconds (10 days) - configurable</li>
-    <li><strong>Storage:</strong> Cloudflare KV (distributed globally)</li>
-    <li><strong>Invalidation:</strong> Automatic after TTL expires</li>
-  </ul>
-
-  <h3>Verifying Cache Status</h3>
-  <p>Check the <code>X-Cache</code> response header:</p>
-  <pre>curl -I "https://quickchart.giobi.workers.dev/chart?type=bar&data=10,20,30"
-
-X-Cache: MISS   # First request - chart rendered and cached
-X-Cache: HIT    # Subsequent requests - served from cache (~50ms)</pre>
-
-  <h3>Performance</h3>
-  <ul>
-    <li><strong>Cache MISS:</strong> ~400-500ms (includes rendering)</li>
-    <li><strong>Cache HIT:</strong> ~20-50ms (edge-cached PNG)</li>
-    <li><strong>Global Distribution:</strong> Served from 300+ Cloudflare edge locations</li>
-  </ul>
-
-  <h3>Same Chart = Same Cache</h3>
-  <p>Identical parameters always return the same cached image:</p>
-  <pre>/chart?type=bar&data=10,20,30&labels=A,B,C
-/chart?type=bar&data=10,20,30&labels=A,B,C  ← Cache HIT!</pre>
-
-  <h2>Health Check</h2>
-  <pre>GET /health</pre>
-
-  <h2>Status</h2>
-  <p><strong>Version:</strong> 0.1.0-poc</p>
-  <p><strong>Cache:</strong> Cloudflare KV ✅ Active</p>
-  <p><strong>Rendering:</strong> Proxying to quickchart.io (temporary)</p>
-
-  <hr>
-  <p><small>POC by Giobi · <a href="https://github.com/giobi/quickchart">GitHub</a></small></p>
-</body>
-</html>`;
+  return demoHTML;
 }
