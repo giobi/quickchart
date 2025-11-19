@@ -15,20 +15,21 @@ Zero-ops deployment with ultra-fast global caching.
 
 ## 📊 Live API
 
-**Base URL**: https://quickchart.giobi.workers.dev
+**Custom Domain**: https://quickchart.giobi.com
+**Workers URL**: https://quickchart.giobi.workers.dev
 
 ### Quick Example
 
 ```
-GET /chart?type=bar&data=10,20,30,25&labels=Q1,Q2,Q3,Q4&title=Sales
+GET https://quickchart.giobi.com/chart?type=bar&data=10,20,30,25&labels=Q1,Q2,Q3,Q4&title=Sales
 ```
 
-![Example Chart](https://quickchart.giobi.workers.dev/chart?type=bar&data=10,20,30,25&labels=Q1,Q2,Q3,Q4&title=Sales&width=600&height=300)
+![Example Chart](https://quickchart.giobi.com/chart?type=bar&data=10,20,30,25&labels=Q1,Q2,Q3,Q4&title=Sales&width=600&height=300)
 
 ### API Documentation
 
-- **Interactive API**: https://quickchart.giobi.workers.dev
-- **Bootstrap Demo**: [View visual examples with code samples →](demo/index.html)
+- **🌐 Live Demo**: https://quickchart.giobi.com (Bootstrap with visual examples)
+- **📦 Local Demo**: [demo/index.html](demo/index.html) (same as live)
 
 ## 📦 Laravel Package
 
@@ -150,7 +151,7 @@ MAX_HEIGHT = "2000"
 #### Laravel (.env)
 
 ```env
-QUICKCHART_URL=https://quickchart.giobi.workers.dev
+QUICKCHART_URL=https://quickchart.giobi.com
 ```
 
 ## 📖 API Reference
@@ -210,7 +211,7 @@ MIT License - see LICENSE file
 
 ## 🔗 Links
 
-- **Live API**: https://quickchart.giobi.workers.dev
+- **🌐 Live Demo**: https://quickchart.giobi.com
 - **GitHub**: https://github.com/giobi/quickchart
 - **Laravel Package**: [laravel/README.md](laravel/README.md)
 

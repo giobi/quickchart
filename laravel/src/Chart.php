@@ -20,10 +20,10 @@ class Chart
             $this->baseUrl = $baseUrl;
         } elseif (function_exists('config')) {
             // Laravel environment
-            $this->baseUrl = config('quickchart.base_url', 'https://quickchart.giobi.workers.dev');
+            $this->baseUrl = config('quickchart.base_url', 'https://quickchart.giobi.com');
         } else {
             // Standalone PHP
-            $this->baseUrl = 'https://quickchart.giobi.workers.dev';
+            $this->baseUrl = 'https://quickchart.giobi.com';
         }
     }
 
