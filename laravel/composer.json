@@ -1,0 +1,49 @@
+{
+    "name": "giobi/quickchart-laravel",
+    "description": "Laravel package for QuickChart - Server-side Chart.js rendering with Cloudflare Workers",
+    "type": "library",
+    "license": "MIT",
+    "keywords": [
+        "laravel",
+        "chart",
+        "chartjs",
+        "quickchart",
+        "cloudflare-workers"
+    ],
+    "authors": [
+        {
+            "name": "Giobi",
+            "email": "giobi@giobi.com"
+        }
+    ],
+    "require": {
+        "php": "^8.1",
+        "illuminate/support": "^10.0|^11.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^8.0|^9.0",
+        "phpunit/phpunit": "^10.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Giobi\\QuickChart\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Giobi\\QuickChart\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Giobi\\QuickChart\\ChartServiceProvider"
+            ],
+            "aliases": {
+                "Chart": "Giobi\\QuickChart\\Facades\\Chart"
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
