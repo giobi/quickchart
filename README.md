@@ -27,7 +27,8 @@ GET /chart?type=bar&data=10,20,30,25&labels=Q1,Q2,Q3,Q4&title=Sales
 
 ### API Documentation
 
-Visit https://quickchart.giobi.workers.dev for interactive docs and examples.
+- **Interactive API**: https://quickchart.giobi.workers.dev
+- **Bootstrap Demo**: [View visual examples with code samples →](demo/index.html)
 
 ## 📦 Laravel Package
 
