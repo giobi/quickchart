@@ -12,6 +12,6 @@ binding = "CHART_CACHE"
 id = "1a3cb5eb4e7843db81c020e70a4da321"
 
 [vars]
-CACHE_TTL = "3600"
+CACHE_TTL = "864000"  # 10 days
 MAX_WIDTH = "2000"
 MAX_HEIGHT = "2000"

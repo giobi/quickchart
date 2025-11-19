@@ -270,7 +270,7 @@ function getApiDocs(): string {
   <h3>How it works</h3>
   <ul>
     <li><strong>Cache Key:</strong> Generated from chart configuration (type, data, labels, dimensions, styling)</li>
-    <li><strong>TTL:</strong> 3600 seconds (1 hour) - configurable</li>
+    <li><strong>TTL:</strong> 864000 seconds (10 days) - configurable</li>
     <li><strong>Storage:</strong> Cloudflare KV (distributed globally)</li>
     <li><strong>Invalidation:</strong> Automatic after TTL expires</li>
   </ul>
