@@ -6,10 +6,10 @@ account_id = "96d18c881e62ba88acd99585849442ae"
 # Cloudflare Workers configuration
 workers_dev = true
 
-# KV namespace for caching (create via dashboard first)
-# [[kv_namespaces]]
-# binding = "CHART_CACHE"
-# id = "YOUR_KV_NAMESPACE_ID"
+# KV namespace for caching
+[[kv_namespaces]]
+binding = "CHART_CACHE"
+id = "1a3cb5eb4e7843db81c020e70a4da321"
 
 [vars]
 CACHE_TTL = "3600"

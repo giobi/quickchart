@@ -264,12 +264,42 @@ function getApiDocs(): string {
     <img src="/chart?type=pie&data=30,50,20&labels=Red,Blue,Yellow&width=400&height=400" />
   </div>
 
+  <h2>⚡ Caching</h2>
+  <p>Charts are cached using Cloudflare KV for ultra-fast subsequent requests.</p>
+
+  <h3>How it works</h3>
+  <ul>
+    <li><strong>Cache Key:</strong> Generated from chart configuration (type, data, labels, dimensions, styling)</li>
+    <li><strong>TTL:</strong> 3600 seconds (1 hour) - configurable</li>
+    <li><strong>Storage:</strong> Cloudflare KV (distributed globally)</li>
+    <li><strong>Invalidation:</strong> Automatic after TTL expires</li>
+  </ul>
+
+  <h3>Verifying Cache Status</h3>
+  <p>Check the <code>X-Cache</code> response header:</p>
+  <pre>curl -I "https://quickchart.giobi.workers.dev/chart?type=bar&data=10,20,30"
+
+X-Cache: MISS   # First request - chart rendered and cached
+X-Cache: HIT    # Subsequent requests - served from cache (~50ms)</pre>
+
+  <h3>Performance</h3>
+  <ul>
+    <li><strong>Cache MISS:</strong> ~400-500ms (includes rendering)</li>
+    <li><strong>Cache HIT:</strong> ~20-50ms (edge-cached PNG)</li>
+    <li><strong>Global Distribution:</strong> Served from 300+ Cloudflare edge locations</li>
+  </ul>
+
+  <h3>Same Chart = Same Cache</h3>
+  <p>Identical parameters always return the same cached image:</p>
+  <pre>/chart?type=bar&data=10,20,30&labels=A,B,C
+/chart?type=bar&data=10,20,30&labels=A,B,C  ← Cache HIT!</pre>
+
   <h2>Health Check</h2>
   <pre>GET /health</pre>
 
   <h2>Status</h2>
   <p><strong>Version:</strong> 0.1.0-poc</p>
-  <p><strong>Cache:</strong> Cloudflare KV (when configured)</p>
+  <p><strong>Cache:</strong> Cloudflare KV ✅ Active</p>
   <p><strong>Rendering:</strong> Proxying to quickchart.io (temporary)</p>
 
   <hr>
