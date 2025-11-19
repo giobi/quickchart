@@ -73,7 +73,7 @@ async function handleChartRequest(url: URL, env: Env): Promise<Response> {
         return new Response(cached, {
           headers: {
             'Content-Type': 'image/png',
-            'Cache-Control': `public, max-age=${env.CACHE_TTL}`,
+            'Cache-Control': 'public, max-age=31536000, immutable',
             'X-Cache': 'HIT'
           }
         });
@@ -83,17 +83,15 @@ async function handleChartRequest(url: URL, env: Env): Promise<Response> {
     // Render chart (POC: proxy to quickchart.io for now)
     const imageBuffer = await renderChart(config);
 
-    // Store in cache (if KV is available)
+    // Store in cache (if KV is available) - no expiration (unlimited cache)
     if (env.CHART_CACHE && imageBuffer) {
-      await env.CHART_CACHE.put(cacheKey, imageBuffer, {
-        expirationTtl: parseInt(env.CACHE_TTL)
-      });
+      await env.CHART_CACHE.put(cacheKey, imageBuffer);
     }
 
     return new Response(imageBuffer, {
       headers: {
         'Content-Type': 'image/png',
-        'Cache-Control': `public, max-age=${env.CACHE_TTL}`,
+        'Cache-Control': 'public, max-age=31536000, immutable',
         'X-Cache': 'MISS'
       }
     });
