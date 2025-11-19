@@ -1,6 +1,7 @@
 name = "quickchart"
 main = "src/index.ts"
 compatibility_date = "2024-11-19"
+account_id = "96d18c881e62ba88acd99585849442ae"
 
 # Cloudflare Workers configuration
 workers_dev = true
